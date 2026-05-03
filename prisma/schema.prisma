@@ -34,4 +34,8 @@ model Profile {
   userId Int
 }
 
-
+model Comment {
+  id      Int      @id @default(autoincrement())
+  content String
+ 
+}
