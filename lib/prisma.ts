@@ -14,6 +14,14 @@ async function main() {
       password: "password",
     },
   });
+
+  await prisma.user.deleteMany({
+    where: {
+      name: {
+        endsWith: "@example.com",
+      },
+    },
+  });
 }
 
 main()
