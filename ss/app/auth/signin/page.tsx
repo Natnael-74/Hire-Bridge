@@ -1,3 +1,14 @@
+import { logIn } from "@/lib/authService";
+
+async function handleSignIn() {
+  try {
+    await logIn();
+    console.log("User signed in successfully");
+  } catch (error) {
+    console.error("Error signing in:", error);
+  }
+}
+
 function SignInPage() {
   return (
     <div className="min-h-[calc(100vh-10rem)] flex items-center justify-center">
@@ -11,7 +22,10 @@ function SignInPage() {
           </p>
         </div>
         <div className="mt-8">
-          <button className="w-full gap-3 px-4 py-3 border border-gray-300 rounded-lg text-gray-700 flex items-center justify-center bg-white hover:bg-gray-50 transition-colors duration-200">
+          <button
+            className="w-full gap-3 px-4 py-3 border border-gray-300 rounded-lg text-gray-700 flex items-center justify-center bg-white hover:bg-gray-50 transition-colors duration-200"
+            onClick={handleSignIn}
+          >
             Sign In with GitHub
           </button>
         </div>
